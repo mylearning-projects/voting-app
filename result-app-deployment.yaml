@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app-deployment
+spec:
+  template:
+    metadata:
+      name: result-app
+      labels:
+        type: frontend-result-app
+    spec:
+      containers:
+        - name: result-app-container
+          image: kodekloud/examplevotingapp_result:v1
+  replicas: 3
+  selector:
+    matchLabels:
+      type: frontend-result-app
